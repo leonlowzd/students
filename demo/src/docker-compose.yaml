@@ -1,0 +1,21 @@
+---
+version: '2'
+services:
+  # jdbc:postgresql://localhost:5432/db
+  postgres:
+    image: postgres:latest
+    hostname: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: db
+
+
+
+volumes:
+  postgres-data:
+    external: false  # Docker will create the volume
